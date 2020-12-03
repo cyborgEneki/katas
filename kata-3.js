@@ -22,14 +22,8 @@
 //     return -1
 
 function firstToLast(str, c) {
-    $firstOccurence = str.indexOf(c);
-    $lastOccurence = str.lastIndexOf(c);
+    let firstOccurence = str.indexOf(c),
+        lastOccurence = str.lastIndexOf(c);
 
-    if (($lastOccurence || $firstOccurence) == -1) {
-        $gap = -1
-    } else {
-        $gap = $lastOccurence - $firstOccurence;
-    }
-
-    return $gap;
+    return (lastOccurence || firstOccurence) == -1 ? -1 : lastOccurence - firstOccurence;
 }
