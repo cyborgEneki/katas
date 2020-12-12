@@ -19,9 +19,10 @@
 
 function encrypt(text, n) {
     let count = 1,
-        i, newStringPartOne = '',
-        newStringPartTwo = '';
-    if (n <= 0 || text == (null || "")) {
+        i,
+        newStringPartOne = newStringPartTwo = '';
+
+    if (n <= 0 || !text) {
         finalString = text
         return finalString
     }
@@ -46,16 +47,15 @@ function encrypt(text, n) {
 }
 
 function decrypt(encryptedText, n) {
-    let decryptedString = '',
+    let decryptedString = finalString = '',
+        i,
         firstHalf,
         secondHalf,
         lengthOfHalfEncryptedString,
-        finalString = '',
-        countSecondHalf = 0,
-        countFirstHalf = 0,
+        countSecondHalf = countFirstHalf = 0,
         count = 1;
 
-    if (n <= 0 || encryptedText == (null || "")) {
+    if (n <= 0 || !encryptedText) {
         finalString = encryptedText;
         return finalString;
     }
