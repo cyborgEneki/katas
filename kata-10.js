@@ -16,6 +16,7 @@
 // return exactly this value!
 //     If n is <= 0 then
 // return the input text.
+
 function encrypt(text, n) {
     let count = 1,
         i, newStringPartOne = '',
@@ -46,6 +47,10 @@ function encrypt(text, n) {
 
 function decrypt(encryptedText, n) {
     let decryptedString = '',
+        firstHalf,
+        secondHalf,
+        lengthOfHalfEncryptedString,
+        finalString = '',
         countSecondHalf = 0,
         countFirstHalf = 0,
         count = 1;
@@ -55,15 +60,9 @@ function decrypt(encryptedText, n) {
         return finalString;
     }
 
-    // Split into half - if odd, more are on the right
-    // First for push from second for
-
     lengthOfHalfEncryptedString = Math.trunc(encryptedText.length / 2);
-    firstHalf = encryptedText.substr(0, lengthOfHalfEncryptedString);
-    secondHalf = encryptedText.substr(lengthOfHalfEncryptedString, encryptedText.length - 1);
-
-    //   console.log(firstHalf)
-    //   console.log(secondHalf)
+    firstHalf = encryptedText.substring(0, lengthOfHalfEncryptedString);
+    secondHalf = encryptedText.substring(lengthOfHalfEncryptedString, encryptedText.length);
 
     while (count <= n) {
         for (i = 0; i < encryptedText.length; i++) {
@@ -76,13 +75,13 @@ function decrypt(encryptedText, n) {
             }
         }
 
+        firstHalf = decryptedString.substring(0, lengthOfHalfEncryptedString);
+        secondHalf = decryptedString.substring(lengthOfHalfEncryptedString, encryptedText.length);
+        finalString = decryptedString;
+        decryptedString = '';
+        countSecondHalf = countFirstHalf = 0;
+
         count++;
-        if (count <= n) {
-            encryptedText = decryptedString;
-            decryptedString = ''
-        } else {
-            finalString = decryptedString;
-        }
     }
 
     return finalString;
