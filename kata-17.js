@@ -45,6 +45,4 @@ Array.prototype.sum = function() {
 Array.prototype.average = function() {
     let average = (a, b) => console.log((a + b) / this.length);
     console.log(average())
-        //   return this.reduce(average)
-
 }
