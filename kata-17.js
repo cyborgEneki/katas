@@ -22,27 +22,48 @@
 //  case !
 
 Array.prototype.square = function() {
-    //   let i;
-    //   for(i = 0; i < this.length; i++) {
-    //    this[i] = Math.pow(this[i], 2);  
-    //   }
-    //   return this;
+    let i, squareArray = [];
+    for (i = 0; i < this.length; i++) {
+        squareArray[i] = Math.pow(this[i], 2);
+    }
+    return squareArray;
 }
 
 Array.prototype.cube = function() {
-    let i;
-    //   for(i = 0; i < this.length; i++) {
-    //    this[i] = Math.pow(this[i], 3);  
-    //   }
-    //   return this;
+    let i, cubeArray = [];
+    for (i = 0; i < this.length; i++) {
+        cubeArray[i] = Math.pow(this[i], 3);
+    }
+    return cubeArray;
 }
 
 Array.prototype.sum = function() {
-    //   let add = (a, b) => a + b;
-    //   return this.reduce(add)
+    if (this == []) {
+        return this
+    }
+    let add = (a, b) => a + b;
+    return this.reduce(add, 0)
 }
 
 Array.prototype.average = function() {
-    let average = (a, b) => console.log((a + b) / this.length);
-    console.log(average())
+    let average = (a, b) => a + b;
+    return this.reduce(average, 0) / this.length
+}
+
+Array.prototype.even = function() {
+    let evenArray = [];
+    for (i = 0; i < this.length; i++) {
+        if (this[i] % 2 == 0)
+            evenArray.push(this[i]);
+    }
+    return evenArray;
+}
+
+Array.prototype.odd = function() {
+    let oddArray = [];
+    for (i = 0; i < this.length; i++) {
+        if (this[i] % 2 == 1)
+            oddArray.push(this[i]);
+    }
+    return oddArray;
 }
